@@ -1,4 +1,4 @@
-# #TWSThreeTierAppChallenge
+# #EKSThreeTierAppChallenge
 
 ## Overview
 This repository hosts the `#EKS-ThreeTierProject`. 
