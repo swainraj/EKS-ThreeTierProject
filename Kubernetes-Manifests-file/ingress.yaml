@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: domaninname.com
+    - host: techrajesh.in
       http:
         paths:
           - path: /api
