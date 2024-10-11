@@ -101,7 +101,7 @@ kubectl get nodes
 
 ### Step 9: Run Manifests
 ``` shell
-kubectl create namespace workshop
+kubectl create namespace three-tier
 kubectl apply -f .
 kubectl delete -f .
 ```
