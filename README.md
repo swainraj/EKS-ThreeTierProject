@@ -72,8 +72,12 @@ sudo apt install docker.io
 docker ps
 sudo chown $USER /var/run/docker.sock
 ```
+### Step 5: ECR Configuration
+- Create two ECR Repo from frontend docker file and backend docker file and push the docker images to ECR.
+ ![image](https://github.com/user-attachments/assets/23bc75c4-e683-4cbe-a2e9-13ba52ac9629)
 
-### Step 5: Install kubectl
+
+### Step 6: Install kubectl
 ``` shell
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
 chmod +x ./kubectl
@@ -81,28 +85,28 @@ sudo mv ./kubectl /usr/local/bin
 kubectl version --short --client
 ```
 
-### Step 6: Install eksctl
+### Step 7: Install eksctl
 ``` shell
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
 
-### Step 7: Setup EKS Cluster
+### Step 8: Setup EKS Cluster
 ``` shell
 eksctl create cluster --name three-tier-cluster --region ap-south-1 --node-type t2.medium --nodes-min 2 --nodes-max 2
 aws eks update-kubeconfig --region ap-south-1 --name three-tier-cluster
 kubectl get nodes
 ```
 
-### Step 8: Run Manifests
+### Step 9: Run Manifests
 ``` shell
 kubectl create namespace workshop
 kubectl apply -f .
 kubectl delete -f .
 ```
 
-### Step 9: Install AWS Load Balancer
+### Step 10: Install AWS Load Balancer
 ``` shell
 curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
@@ -110,7 +114,7 @@ eksctl utils associate-iam-oidc-provider --region=ap-south-1 --cluster=three-tie
 eksctl create iamserviceaccount --cluster=three-tier-cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::626072240565:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=ap-south-1
 ```
 
-### Step 10: Deploy AWS Load Balancer Controller
+### Step 11: Deploy AWS Load Balancer Controller
 ``` shell
 sudo snap install helm --classic
 helm repo add eks https://aws.github.io/eks-charts
@@ -124,9 +128,8 @@ kubectl apply -f full_stack_lb.yaml
 - To delete the EKS cluster:
 ``` shell
 eksctl delete cluster --name three-tier-cluster --region ap-south-1
-
-## Support
-For any queries or issues, please open an issue in the repository.
-
 ---
-Happy Learning! 🚀👨‍💻👩‍💻
+
+### Cleanup
+- For any queries or issues, please open an issue in the repository.
+- Happy Learning! 🚀👨‍💻👩‍💻
