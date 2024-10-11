@@ -1,8 +1,10 @@
-# #EKSThreeTierAppChallenge
+# #EKSThreeTierProject
 
 ## Overview
 This repository hosts the `#EKS-ThreeTierProject`. 
 The challenge involves deploying a Three-Tier Web Application using ReactJS, NodeJS, and MongoDB, with deployment on AWS EKS.
+
+![image](https://github.com/user-attachments/assets/030f4099-b2c2-44a3-9f8f-620a5ae9589f)
 
 ## Prerequisites
 - Basic knowledge of Docker, and AWS services.
