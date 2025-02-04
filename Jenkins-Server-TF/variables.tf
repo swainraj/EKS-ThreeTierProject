@@ -6,3 +6,5 @@ variable "sg-name" {}
 variable "instance-name" {}
 variable "key-name" {}
 variable "iam-role" {}
+variable "private-subnet-id" {} # Add this
+variable "security-group-id" {} # Add this
